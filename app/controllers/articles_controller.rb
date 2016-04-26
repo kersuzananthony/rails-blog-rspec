@@ -1,9 +1,15 @@
 class ArticlesController < ApplicationController
 
+  before_action :set_article, only: [:show]
+
   # GET '/'
   # GET '/articles'
   def index
     @articles = Article.all
+  end
+
+  # GET '/articles/:id'
+  def show
   end
 
   # GET '/articles/new'
@@ -27,6 +33,10 @@ class ArticlesController < ApplicationController
   private
   def article_params
     params.require(:article).permit(:title, :body)
+  end
+
+  def set_article
+    @article = Article.find_by(id: params[:id])
   end
 
 end

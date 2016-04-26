@@ -7,6 +7,9 @@ body {
   color: #791e9e;
 }
 
+/*
+  articles#index
+*/
 .article {
   .article-title, .article-body {
     padding-left: 0.7em;
@@ -25,4 +28,19 @@ body {
 
 #new-article-btn {
   margin-bottom: 10px;
+}
+
+/*
+  articles#show
+*/
+.article-detail {
+
+  .article-detail-date {
+    margin-bottom: 40px;
+  }
+
+  .article-detail-title {
+    font-size: 4em;
+    margin-bottom: 40px;
+  }
 }
