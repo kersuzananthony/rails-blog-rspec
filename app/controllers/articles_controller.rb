@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [:show, :edit, :update]
 
   # GET '/'
   # GET '/articles'
@@ -26,6 +26,22 @@ class ArticlesController < ApplicationController
     else
       flash.now[:danger] = 'Article has not been created'
       render 'new'
+    end
+  end
+
+  # GET '/articles/:id/edit'
+  def edit
+
+  end
+
+  # PUT '/articles/:id'
+  def update
+    if @article.update(article_params)
+      flash[:success] = 'Article has been successfully updated'
+      redirect_to article_path @article
+    else
+      flash.now[:danger] = 'Article has not been updated'
+      render 'edit'
     end
   end
 
