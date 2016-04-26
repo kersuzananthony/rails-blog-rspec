@@ -41,6 +41,8 @@ group :development, :test do
 
   # Unit Test
   gem 'rspec-rails', '3.2.3'
+  gem 'guard-rspec', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :development do
