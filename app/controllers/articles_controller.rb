@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET '/'
   # GET '/articles'
@@ -31,7 +31,6 @@ class ArticlesController < ApplicationController
 
   # GET '/articles/:id/edit'
   def edit
-
   end
 
   # PUT '/articles/:id'
@@ -42,6 +41,14 @@ class ArticlesController < ApplicationController
     else
       flash.now[:danger] = 'Article has not been updated'
       render 'edit'
+    end
+  end
+
+  # DELETE '/articles/:id'
+  def destroy
+    if @article.destroy
+      flash[:success] = 'Article has been successfully deleted'
+      redirect_to articles_path
     end
   end
 
