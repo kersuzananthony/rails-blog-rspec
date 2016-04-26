@@ -6,10 +6,12 @@ class ArticlesController < ApplicationController
 
   end
 
+  # GET '/articles/new'
   def new
     @article = Article.new
   end
 
+  # POST '/articles'
   def create
     @article = Article.new(article_params)
     if @article.save
@@ -20,6 +22,7 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # Private methods
   private
   def article_params
     params.require(:article).permit(:title, :body)
