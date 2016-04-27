@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
   # POST '/articles'
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       flash[:success] = 'Article has been created'
       redirect_to articles_path
