@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :show]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :same_user, only: [:edit, :update, :destroy]
 
   # GET '/'
   # GET '/articles'
@@ -49,7 +50,7 @@ class ArticlesController < ApplicationController
   def destroy
     if @article.destroy
       flash[:success] = 'Article has been successfully deleted'
-      redirect_to articles_path
+      redirect_to root_path
     end
   end
 
@@ -61,6 +62,13 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find_by(id: params[:id])
+  end
+
+  def same_user
+    if @article.user != current_user
+      flash[:danger] = 'You can only edit/delete your own article.'
+      redirect_to root_path
+    end
   end
 
 end
