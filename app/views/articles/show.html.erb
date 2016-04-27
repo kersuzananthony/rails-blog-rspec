@@ -5,14 +5,14 @@
   <div class="glyphicon glyphicon-calendar article-detail-date" id="article-date">
     <%= @article.created_at.strftime('%b %d, %Y') %>
   </div>
+  <% if @article.user %>
+      <p class="author">
+        <small>Created by <%= @article.user.email %></small>
+      </p>
+  <% end %>
   <p class="article-detail-body">
     <%= simple_format @article.body %>
   </p>
-  <% if @article.user %>
-    <p class="author">
-      <small>Created by <%= @article.user.email %></small>
-    </p>
-  <% end %>
   <%= link_to 'Edit Article', edit_article_path(@article), class: 'btn btn-default btn-lg btn-space' %>
   <%= link_to 'Delete Article', article_path(@article),
               method: :delete,
