@@ -1,0 +1,16 @@
+<%= form_for([@article, @comment], :html => { class: 'form-horizontal', role: 'form' }) do |f| %>
+    <%= render 'shared/errors', obj: @comment %>
+    <div class="form-group">
+      <div class="control-label col-md-2">
+        <%= f.label :body, 'New Comment' %>
+      </div>
+      <div class="col-md-10">
+        <%= f.text_area :body,  class: 'form-control', placeholder: 'Your comment', rows: 10 %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-offset-2 col-md-10">
+        <%= f.submit(@comment.new_record? ? 'Add Comment' : 'Update Comment', class: 'btn btn-primary btn-lg pull-right') %>
+      </div>
+    </div>
+<% end %>

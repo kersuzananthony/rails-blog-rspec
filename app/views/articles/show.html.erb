@@ -21,4 +21,17 @@
                 class: 'btn btn-danger btn-lg btn-space',
                 data: { confirm: 'Are you sure?'} %>
   <% end %>
+
+  <hr>
+
+  <%= render 'comments/form' %>
+
+  <% if @article.comments.any? %>
+    <% @article.comments.persisted.each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  <% else %>
+    <p>There are no comments to show.</p>
+  <% end %>
 </article>
+

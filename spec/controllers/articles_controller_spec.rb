@@ -47,7 +47,7 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     context 'Owner is allowed to delete his article' do
-      it 'should render the delete template' do
+      it 'should redirect to root path after deleting' do
         login_user @user
         article = Article.create(title: 'First article', body: 'Body of first article', user: @user)
 

@@ -15,7 +15,7 @@ RSpec.feature 'Deleting Article' do
     click_link 'Delete Article'
 
     expect(page).to have_content 'Article has been successfully deleted'
-    expect(page.current_path).to eq articles_path
+    expect(page.current_path).to eq root_path
     expect(page.status_code).to eq 200
   end
 

@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
 
   # GET '/articles/:id'
   def show
+    @comment = @article.comments.build
   end
 
   # GET '/articles/new'
