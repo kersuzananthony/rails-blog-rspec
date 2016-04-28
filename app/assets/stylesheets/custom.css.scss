@@ -51,6 +51,21 @@ body {
   }
 }
 
+.comment-item {
+  .comment-body, .comment-time {
+    margin-left: 2em;
+  }
+
+  .comment-body {
+    font-size: x-large;
+  }
+
+  .comment-time {
+    font-style: italic;
+    font-size: large;
+  }
+}
+
 .btn-space {
   margin-top: 20px;
 }
